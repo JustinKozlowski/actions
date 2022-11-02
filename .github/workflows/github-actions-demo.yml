@@ -31,5 +31,7 @@ jobs:
     - name: Set Secrets
       env:
         UBIT_USERNAME: ${{ secrets.UBITUsername}}
+        UBIT_PASSWORD: ${{ secrets.UBITPASSWORD}}
       run: |
         echo $UBIT_USERNAME
+        echo $UBIT_PASSWORD
