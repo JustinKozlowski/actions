@@ -3,10 +3,15 @@ import os
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options
 from webdriver_manager.chrome import ChromeDriverManager
 
 def main():
-    driver = webdriver.Chrome(executable_path=ChromeDriverManager().install())
+    chrome_options = Options()
+    chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--no-sandbox')
+    chrome_options.add_argument('--disable-dev-shm-usage')
+    driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), chrome_options=chrome_options)
     driver.get('https://autograder.cse.buffalo.edu/auth/users/sign_in')
     print("Current Page: " + driver.title)
     elem = driver.find_element(By.TAG_NAME, 'input')  # Find the search box
