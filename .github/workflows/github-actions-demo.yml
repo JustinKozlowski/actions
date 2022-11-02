@@ -28,13 +28,12 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install flake8 pytest selenium webdriver_manager
-    - name: Set Secrets
+    - name: Run AutoLab Script
       env:
         UBIT_USERNAME: ${{ secrets.UBITUsername}}
         UBIT_PASSWORD: ${{ secrets.UBITPASSWORD}}
       run: |
         echo $UBIT_USERNAME
         echo $UBIT_PASSWORD
-    - name: Run Autolab Script
-      run: |
         python autolab.py
+        
