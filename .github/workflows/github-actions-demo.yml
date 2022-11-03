@@ -31,9 +31,7 @@ jobs:
     - name: Run AutoLab Script
       env:
         UBIT_USERNAME: ${{ secrets.UBITUsername}}
-        UBIT_PASSWORD: ${{ secrets.UBITPASSWORD}}
+        UBIT_PASSWORD: ${{ secrets.UBITPassword}}
       run: |
-        echo $UBIT_USERNAME
-        echo $UBIT_PASSWORD
         python autolab.py
         
