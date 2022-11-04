@@ -1,17 +1,7 @@
-name: Python application
-
-on: [push]
-
-permissions:
-  contents: read
-
-jobs:
-  build:
-
-    runs-on: ubuntu-latest
-
-    steps:
-    - uses: actions/checkout@v3
+name: Submit To AutoLab
+runs:
+  using: "composite"
+  steps:
     - uses: nanasess/setup-chromedriver@v1
       with:
         # Optional: do not specify to match Chrome's version

@@ -13,6 +13,7 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: ./hello_world
+    - uses: ./auto_lab
     # - uses: nanasess/setup-chromedriver@v1
     #   with:
     #     # Optional: do not specify to match Chrome's version
