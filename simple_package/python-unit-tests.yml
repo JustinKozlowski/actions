@@ -1,4 +1,4 @@
-name: Python AutoLab Application
+name: GitLab Actions Hello World
 
 on: [push]
 
@@ -6,7 +6,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v3
     - name: Hello GitHub Actions!
       run: |
         echo "Hello World!"

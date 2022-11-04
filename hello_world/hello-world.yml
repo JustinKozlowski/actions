@@ -1,0 +1,7 @@
+name: GitLab Actions Hello World
+runs:
+  using: "composite"
+  steps:
+    - run: echo Hello! This is on GitHub Actions.
+      shell: bash
+        
