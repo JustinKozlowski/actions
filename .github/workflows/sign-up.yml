@@ -13,6 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
+          ls
           python signup.py
         env:
           NUMBER: ${{ github.event.issue.number }}
