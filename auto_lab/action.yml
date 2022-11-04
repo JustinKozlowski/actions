@@ -1,9 +1,4 @@
 name: Submit To AutoLab
-inputs:
-  UBIT_USERNAME:  # id of input
-    description: 'UBIT Username to log into AutoLab'
-    required: true
-    default: 'Justin'
 runs:
   using: "composite"
   steps:
