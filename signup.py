@@ -1,3 +1,5 @@
+"""This a script to enroll a user in the ub hacking course. Only used in workflow"""
+
 from time import sleep
 import os
 from selenium import webdriver
@@ -22,8 +24,6 @@ def main():
     driver.find_element(By.TAG_NAME, 'input').click()
     driver.find_element(By.NAME, 'j_username').send_keys(os.environ['UBIT_USERNAME'])
     driver.find_element(By.NAME, 'j_password').send_keys(os.environ['UBIT_PASSWORD'] + Keys.RETURN)
-
-    # Wait for duo
 
     # Navigate to submission page, wait for duo
     x = 0

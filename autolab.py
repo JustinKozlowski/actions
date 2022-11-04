@@ -50,4 +50,8 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('commit')
     args = parser.parse_args()
-    main(parse_commit(args.commit))
+    info = parse_commit(args.commit)
+    if not info:
+        print('Not a submission Commit')
+    else:
+        main(info)
