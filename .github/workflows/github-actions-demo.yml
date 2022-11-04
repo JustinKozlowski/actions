@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - uses: ./hello_world/hello_world.yml
+    - uses: ./hello_world
     # - uses: nanasess/setup-chromedriver@v1
     #   with:
     #     # Optional: do not specify to match Chrome's version
