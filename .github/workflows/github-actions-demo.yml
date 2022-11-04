@@ -11,8 +11,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+    - uses: actions/checkout@v3
     - uses: ./hello_world/hello_world.yml
-    # - uses: actions/checkout@v3
     # - uses: nanasess/setup-chromedriver@v1
     #   with:
     #     # Optional: do not specify to match Chrome's version
