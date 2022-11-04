@@ -13,8 +13,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-          echo A comment on issue $NUMBER
-          echo $BODY
+          python signup.py
         env:
           NUMBER: ${{ github.event.issue.number }}
           BODY: ${{ github.event.comment.body }}

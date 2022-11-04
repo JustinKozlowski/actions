@@ -1,6 +1,5 @@
 from time import sleep
 import os
-import argparse
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
@@ -12,7 +11,7 @@ from commitparser.parse_commit import parse_commit
 def main():
     # Initialize chrom drive
     chrome_options = Options()
-    # chrome_options.add_argument('--headless')
+    chrome_options.add_argument('--headless')
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
     driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=chrome_options)
@@ -36,9 +35,8 @@ def main():
         print('Error in Duo authentication')
         return
     driver.get('https://autograder.cse.buffalo.edu/courses/UBHacking-f22/course_user_data/new')
-    driver.find_element(By.ID, 'course_user_datum_user_attributes_email').send_keys("jjkozlow@buffalo.edu")
+    driver.find_element(By.ID, 'course_user_datum_user_attributes_email').send_keys(os.environ['BODY'])
     driver.find_element(By.ID, 'user_submit').click()
-    sleep(100)
     driver.quit()
 
 
