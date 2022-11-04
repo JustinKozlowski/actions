@@ -1,6 +1,9 @@
 name: UB AutoLab Sign Up
 
-on: issue_comment
+on:
+  issue_comment:
+    types:
+      - created
 
 jobs:
   issue_commented:
@@ -14,4 +17,4 @@ jobs:
           echo $BODY
         env:
           NUMBER: ${{ github.event.issue.number }}
-          BODY: ${{ github.event.issue.body }}
+          BODY: ${{ github.event.comment.body }}
