@@ -9,10 +9,10 @@ from webdriver_manager.chrome import ChromeDriverManager
 from commitparser.parse_commit import parse_commit
 
 
-def main(assignment, file):
+def main():
     # Initialize chrom drive
     chrome_options = Options()
-    chrome_options.add_argument('--headless')
+    # chrome_options.add_argument('--headless')
     chrome_options.add_argument('--no-sandbox')
     chrome_options.add_argument('--disable-dev-shm-usage')
     driver = webdriver.Chrome(executable_path=ChromeDriverManager().install(), options=chrome_options)
@@ -35,19 +35,12 @@ def main(assignment, file):
     if x == 15:
         print('Error in Duo authentication')
         return
-    driver.find_element(By.XPATH, f"//a[text()='{assignment}']").click()
-    
-    # Authorize AI
-    driver.find_element(By.XPATH, "//form[@id='new_submission']/label").click()
-    # Submit file
-    root = os.path.dirname(__file__)
-    driver.find_element(By.ID, 'submission_file').send_keys(root + file)
-    print('Successfuly Submitted')
+    driver.get('https://autograder.cse.buffalo.edu/courses/UBHacking-f22/course_user_data/new')
+    driver.find_element(By.ID, 'course_user_datum_user_attributes_email').send_keys("jjkozlow@buffalo.edu")
+    driver.find_element(By.ID, 'user_submit').click()
+    sleep(100)
     driver.quit()
 
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument('commit')
-    args = parser.parse_args()
-    main(parse_commit(args.commit))
+    main()
