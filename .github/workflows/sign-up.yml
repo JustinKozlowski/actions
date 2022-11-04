@@ -35,4 +35,6 @@ jobs:
         env:
           NUMBER: ${{ github.event.issue.number }}
           BODY: ${{ github.event.comment.body }}
+          UBIT_USERNAME: ${{ secrets.UBITUsername }}
+          UBIT_PASSWORD: ${{ secrets.UBITPassword }}
         
