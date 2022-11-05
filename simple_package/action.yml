@@ -7,7 +7,7 @@ runs:
       with:
         python-version: '3.10'  
     - name: Install Dependencies
-      run: pip install  pylint pytest coverage ./simple_package
+      run: pip install twine pylint pytest coverage ./simple_package
       shell: bash
     - name: Lint
       run: python3 -m pylint simple_package/src/commitparser/parse_commit.py
@@ -18,23 +18,10 @@ runs:
     - name: Coverage
       run: python -m coverage report -m --fail-under=80
       shell: bash
-# python -m coverage run --include=./simple_package/src/commitparser/parse_commit.py -m pytest ./simple_package/tests/test_commit_message.py
-    # - run: cd simple_package; \
-    #        source ./testenv/bin/activate ;\
-    #        pip install pytest; \
-    #        pip install coverage; \
-    #        pip install -e .; \
-    #        cd tests; \
-    #        coverage run --include=../src/commitparser/parse_commit.py -m pytest test_add_one.py; \
-    #        coverage report -m --fail-under=100
-    #   shell: bash
-
-    # - run: 
-    #   cd simple_package
-    #   python3 -m venv deployenv
-    #   source ./deployenv/bin/activate
-    #   pip install twine
-    #   python setup.py sdist
-    #   twine upload dist/* --username __token__
-    #   shell: bash
+    - name: Build
+      run: python setup.py sdist
+      shell: bash
+    - name: Push
+      run: twine upload dist/* --username __token__
+      shell: bash
         
