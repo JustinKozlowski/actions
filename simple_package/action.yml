@@ -13,7 +13,10 @@ runs:
       run: python3 -m pylint simple_package/src/commitparser/parse_commit.py
       shell: bash
     - name: Test
-      run: python3 -m coverage run --include=./simple_package/src/commitparser/parse_commit.py -m pytest ./simple_package/tests/test_add_one.py
+      run: python3 -m coverage run --include=./simple_package/src/commitparser/parse_commit.py -m pytest ./simple_package/tests/test_commit_message.py
+      shell: bash
+    - name: Coverage
+      run: python3 -m coverage report -m --fail-under=80
       shell: bash
 
     # - run: cd simple_package; \
