@@ -21,7 +21,7 @@ runs:
     - name: Build
       run: |
         cd simple_package
-        python simple_package/setup.py sdist
+        python setup.py sdist
         twine upload dist/* --username __token__
       shell: bash
     # - name: Push
