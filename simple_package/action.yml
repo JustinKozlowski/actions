@@ -2,8 +2,7 @@ name: Simple Package Deploy
 runs:
   using: "composite"
   steps:
-    - name: Pylint 
-      run: 
+    - run: 
       cd simple_package
       python3 -m venv testenv
       source ./testenv/bin/activate
@@ -11,8 +10,7 @@ runs:
       pylint src/commitparser/parse_commit.py
       shell: bash
 
-    - name: Coverage 
-      run: 
+    - run: 
       cd simple_package
     # Create and Setup Python environment
       source ./testenv/bin/activate
@@ -24,8 +22,7 @@ runs:
       coverage report -m --fail-under=100
       shell: bash
 
-    - name: Deploy
-      run: 
+    - run: 
       cd simple_package
       python3 -m venv deployenv
       source ./deployenv/bin/activate
