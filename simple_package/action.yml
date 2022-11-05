@@ -7,21 +7,16 @@ runs:
       with:
         python-version: '3.10'  
     - name: Install Dependencies
-      run: pip install  pylint pytest coverage .
+      run: pip install  pylint pytest coverage ./simple_package
       shell: bash
-    - name: Test
+    - name: Lint
       id: get-square
       run: python3 -m pylint simple_package/src/commitparser/parse_commit.py
       shell: bash
-  # steps: 
-  #   - name: Install Python
-  #     uses: actions/setup-python@v4
-  #     with:
-  #       python-version: '3.10'
-  #   - run: cd simple_package; \
-  #          python3 -m pip3 install pylint pytest coverage .; \
-  #          python3 -m pylint src/commitparser/parse_commit.py
-  #     shell: bash
+    - name: Test
+      id: get-square
+      run: python3 -m coverage run --include=simple_package/src/commitparser/parse_commit.py -m pytest simple_package/tests/test_add_one.py
+      shell: bash
 
     # - run: cd simple_package; \
     #        source ./testenv/bin/activate ;\
