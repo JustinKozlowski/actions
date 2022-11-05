@@ -7,7 +7,7 @@ runs:
       with:
         python-version: '3.10'
     - run: cd simple_package; \
-           pip install pylint pytest coverage .; \
+           python -m pip install pylint pytest coverage .; \
            python -m pylint src/commitparser/parse_commit.py
       shell: bash
 
