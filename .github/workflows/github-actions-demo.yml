@@ -35,7 +35,7 @@ jobs:
     needs: [lint, coverage]
     steps:
     - uses: actions/checkout@v3
-    - uses: ./action_examples/twine
+    - uses: ./actions_examples/twine
       env:
         TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
   
