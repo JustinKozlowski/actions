@@ -7,15 +7,11 @@ runs:
       with:
         python-version: '3.10'  
     - name: Install Dependencies
-      run: pip install -r requirements.txt
+      run: pip install  pylint pytest coverage .
       shell: bash
-    - name: Pass Inputs to Shell
-      run: |
-       echo "INPUT_NUM=${{ inputs.num }}" >> $GITHUB_ENV
-      shell: bash
-    - name: Fetch the number's square
+    - name: Test
       id: get-square
-      run: python src/get_num_square.py
+      run: python3 -m pylint simple_package/src/commitparser/parse_commit.py
       shell: bash
   # steps: 
   #   - name: Install Python
