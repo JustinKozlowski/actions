@@ -6,29 +6,29 @@ permissions:
   contents: write
 
 jobs:
-  hello:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - run: ls
+  # hello:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #   - run: ls
 
-  test:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - uses: ./actions_examples/pytest
+  # test:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #   - uses: ./actions_examples/pytest
   
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - uses: ./actions_examples/pylint
+  # lint:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #   - uses: ./actions_examples/pylint
 
-  coverage:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v3
-    - uses: ./actions_examples/coverage
+  # coverage:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #   - uses: ./actions_examples/coverage
 
   # push:
   #   runs-on: ubuntu-latest
@@ -46,7 +46,7 @@ jobs:
     if: startsWith(github.event.head_commit.message, 'submit ') 
     steps:
     - uses: actions/checkout@v3
-    - uses: JustinKozlowski/AutoLabAutoSubmit@v2
+    - uses: JustinKozlowski/AutoLabAutoSubmit@v3
       env:
         UBIT_USERNAME: ${{ secrets.UBITUsername }}
         UBIT_PASSWORD: ${{ secrets.UBITPassword }}
