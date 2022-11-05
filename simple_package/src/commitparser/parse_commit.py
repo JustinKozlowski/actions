@@ -9,5 +9,5 @@ def parse_commit(commit):
     if not commit.startswith('submit '):
         return False
     assignment = commit[commit.find('~')+1:commit.rfind('~')]
-    files = [file for file in commit[commit.rfind('~')+1:].split(' ') if file]
-    return assignment, files
+    file = [file for file in commit[commit.rfind('~')+1:].split(' ') if file][0]
+    return assignment, file

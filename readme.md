@@ -32,3 +32,8 @@ automatically submit your code to autolab based on your commit message.
 You can utilize this by using the `example.yml` file in your own 
 repository under `/.github/workflows`. It requires you to set the
 `UBITUsername` and `UBITPassword` secrets within the repository though.
+
+
+PSA: This project was ported from a version I made from GitLab,
+so I may have missed some READMEs which may reference old Repo structure
+or GitLab functionality.
