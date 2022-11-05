@@ -24,9 +24,11 @@ example pushes our python code to PyPi. We
 also use this example to show other coding standards that pipelines
 can check such as linting and testing coverage.
 
-### `/auto_lab`
+### `/`
 For Continuous Deployment, we can use a pipeline to push our code
 to a server. For UB students, you don't often have to deploy to a server, 
-but you do have to submit assignments often. This section has a pipeline
-that will automatically submit you code to autolab based on your 
-commit message. 
+but you do have to submit assignments often. The `action.yml` will 
+automatically submit your code to autolab based on your commit message.
+You can utilize this by using the `example.yml` file in your own 
+repository under `/.github/workflows`. It requires you to set the
+`UBITUsername` and `UBITPassword` secrets within the repository though.
