@@ -16,19 +16,21 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
-    - uses: ./simple_package
+    - uses: ./unit_test
 
-  lint:
+  tests:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - uses: ./simple_package
   
-  coverage:
-    runs-on: ubuntu-latest
+  push:
+  runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v3
     - uses: ./simple_package
+      env:
+        TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
   
   # Uncomment below for autolab submission
   build:
@@ -37,7 +39,7 @@ jobs:
     if: startsWith(github.event.head_commit.message, 'submit ') 
     steps:
     - uses: actions/checkout@v3
-    - uses: ./auto_lab
+    - uses: ./
       env:
         UBIT_USERNAME: ${{ secrets.UBITUsername }}
         UBIT_PASSWORD: ${{ secrets.UBITPassword }}
