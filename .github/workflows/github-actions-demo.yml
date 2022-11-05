@@ -33,15 +33,15 @@ jobs:
         TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
   
   # Uncomment below for autolab submission
-  build:
-    needs: [lint, coverage] 
-    runs-on: ubuntu-latest
-    if: startsWith(github.event.head_commit.message, 'submit ') 
-    steps:
-    - uses: actions/checkout@v3
-    - uses: ./
-      env:
-        UBIT_USERNAME: ${{ secrets.UBITUsername }}
-        UBIT_PASSWORD: ${{ secrets.UBITPassword }}
+  # build:
+  #   needs: [lint, coverage] 
+  #   runs-on: ubuntu-latest
+  #   if: startsWith(github.event.head_commit.message, 'submit ') 
+  #   steps:
+  #   - uses: actions/checkout@v3
+  #   - uses: ./
+  #     env:
+  #       UBIT_USERNAME: ${{ secrets.UBITUsername }}
+  #       UBIT_PASSWORD: ${{ secrets.UBITPassword }}
 
         
