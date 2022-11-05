@@ -8,10 +8,11 @@ permissions:
 jobs:
   submit:
     runs-on: ubuntu-latest
-    if: startsWith(github.event.head_commit.message, 'submit ')
+    if: startsWith(github.event.head_commit.message, 'submit ') 
     steps:
     - uses: actions/checkout@v3
-    - uses: ./auto_lab
+    - uses: JustinKozlowski/AutoLabAutoSubmit@v3
       env:
         UBIT_USERNAME: ${{ secrets.UBITUsername }}
         UBIT_PASSWORD: ${{ secrets.UBITPassword }}
+        COMMIT: ${{ github.event.head_commit.message }}
