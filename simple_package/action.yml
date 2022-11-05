@@ -18,13 +18,10 @@ runs:
     - name: Coverage
       run: python -m coverage report -m --fail-under=80
       shell: bash
-    - name: Build
+    - name: Build and Push
       run: |
         cd simple_package
         python setup.py sdist
         twine upload dist/* --username __token__
       shell: bash
-    # - name: Push
-    #   run: twine upload dist/* --username __token__
-    #   shell: bash
         

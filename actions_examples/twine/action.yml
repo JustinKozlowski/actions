@@ -1,0 +1,18 @@
+name: Simple PyPi Push
+runs:
+  using: "composite"
+  steps:
+    - name: Install Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'  
+    - name: Install Dependencies
+      run: pip install twine ./simple_package
+      shell: bash
+    - name: Build and Push
+      run: |
+        cd simple_package
+        python setup.py sdist
+        twine upload dist/* --username __token__
+      shell: bash
+        

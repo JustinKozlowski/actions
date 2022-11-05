@@ -1,0 +1,17 @@
+name: Simple Coverage Test
+runs:
+  using: "composite"
+  steps:
+    - name: Install Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'  
+    - name: Install Dependencies
+      run: pip install pytest coverage ./simple_package
+      shell: bash
+    - name: Test
+      run: |
+        python -m coverage run -m pytest ./simple_package/tests/test_commit_message.py
+        python -m coverage report -m --fail-under=80
+      shell: bash
+        
