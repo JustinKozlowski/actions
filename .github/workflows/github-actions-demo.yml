@@ -39,7 +39,7 @@ jobs:
   #     env:
   #       TWINE_PASSWORD: ${{ secrets.TWINE_PASSWORD }}
   
-  # Uncomment below for autolab submission
+  # Uncomment below for autolab submissionsss
   submit:
     runs-on: ubuntu-latest
     needs: [lint, coverage] 
