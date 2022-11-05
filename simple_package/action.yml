@@ -2,14 +2,16 @@ name: Simple Package Deploy
 runs:
   using: "composite"
   steps: 
-    - run: echo Hello! This is on GitHub Actions.
+    - run: cd simple_package
       shell: bash
-    #   cd simple_package
-    #   python3 -m venv testenv
-    #   source ./testenv/bin/activate
-    #   pip install pylint
-    #   pylint src/commitparser/parse_commit.py
-      # shell: bash
+    - run: python3 -m venv testenv
+      shell: bash
+    - run: source ./testenv/bin/activate
+      shell: bash
+    - run: pip install pylint pytest coverage .
+      shell: bash
+    - run:  pylint src/commitparser/parse_commit.py
+      shell: bash
 
     # - run: 
     #   cd simple_package
