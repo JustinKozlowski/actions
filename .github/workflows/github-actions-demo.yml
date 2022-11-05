@@ -12,11 +12,11 @@ jobs:
     - uses: actions/checkout@v3
     - run: ls
 
-  # test:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v3
-  #   - uses: ./actions_examples/pytest
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: ./actions_examples/pytest
   
   # lint:
   #   runs-on: ubuntu-latest
