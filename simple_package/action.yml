@@ -10,17 +10,27 @@ runs:
       pip install pylint
       pylint src/commitparser/parse_commit.py
       shell: bash
+
     - name: Coverage 
       run: 
       cd simple_package
     # Create and Setup Python environment
-      python3 -m venv testenv
       source ./testenv/bin/activate
       pip install pytest
       pip install coverage
       pip install -e .
       cd tests
-      coverage run --include=../src/simplepythonpackage/add_one.py -m pytest test_add_one.py
+      coverage run --include=../src/commitparser/parse_commit.py -m pytest test_add_one.py
       coverage report -m --fail-under=100
+      shell: bash
+
+    - name: Deploy
+      run: 
+      cd simple_package
+      python3 -m venv deployenv
+      source ./deployenv/bin/activate
+      pip install twine
+      python setup.py sdist
+      twine upload dist/* --username __token__
       shell: bash
         
