@@ -2,7 +2,7 @@ from commitparser.parse_commit import parse_commit
 
 
 def test_commit_message():
-    assert parse_commit('submit ~UB Hacking Submission~ parse_commit.py') == ('UB Hacking Submission', ['parse_commit.py'])
+    assert parse_commit('submit ~UB Hacking Submission~ parse_commit.py') == ('UB Hacking Submission', 'parse_commit.py')
 
 
 def test_add_one_z():
