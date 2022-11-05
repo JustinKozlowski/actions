@@ -2,7 +2,7 @@ name: Simple Package Deploy
 runs:
   using: "composite"
   steps:
-    - run: 
+    - run: |
       echo Hello
     #   cd simple_package
     #   python3 -m venv testenv

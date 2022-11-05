@@ -6,11 +6,11 @@ permissions:
   contents: read
 
 jobs:
-  # hello:
-  #   runs-on: ubuntu-latest
-  #   steps:
-  #   - uses: actions/checkout@v3
-  #   - uses: ./hello_world
+  hello:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - uses: ./hello_world
 
   # test:
   #   runs-on: ubuntu-latest
