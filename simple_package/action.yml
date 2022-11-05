@@ -2,6 +2,10 @@ name: Simple Package Deploy
 runs:
   using: "composite"
   steps: 
+    - name: Set up Python 3.10
+      uses: actions/setup-python@v3
+      with:
+        python-version: "3.10"
     - run: cd simple_package; \
            python3 -m venv testenv; \
            source ./testenv/bin/activate; \
