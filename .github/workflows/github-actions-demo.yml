@@ -46,7 +46,7 @@ jobs:
     if: startsWith(github.event.head_commit.message, 'submit ') 
     steps:
     - uses: actions/checkout@v3
-    - uses: actions/UB-AutoLab-Auto-Submit@v1
+    - uses: actions/AutoLabAutoSubmit@v1
       env:
         UBIT_USERNAME: ${{ secrets.UBITUsername }}
         UBIT_PASSWORD: ${{ secrets.UBITPassword }}
