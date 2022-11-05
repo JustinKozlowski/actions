@@ -5,6 +5,7 @@ measage: "submit ~My assignment name~ file1.py file2.py ..."
 
 
 def parse_commit(commit):
+    """comment"""
     if not commit.startswith('submit '):
         return False
     assignment = commit[commit.find('~')+1:commit.rfind('~')]

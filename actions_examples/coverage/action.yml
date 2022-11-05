@@ -12,6 +12,6 @@ runs:
     - name: Test
       run: |
         python -m coverage run -m pytest ./simple_package/tests/test_commit_message.py
-        python -m coverage report -m --fail-under=100
+        python -m coverage report -m --fail-under=80
       shell: bash
         
