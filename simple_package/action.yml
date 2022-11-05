@@ -19,7 +19,7 @@ runs:
       run: python -m coverage report -m --fail-under=80
       shell: bash
     - name: Build
-      run: python setup.py sdist
+      run: python simple_package/setup.py sdist
       shell: bash
     - name: Push
       run: twine upload dist/* --username __token__
